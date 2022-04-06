@@ -1,0 +1,10 @@
+[Unit]
+Description=Service using tableflip
+
+[Service]
+WorkingDirectory=/root/reload
+ExecStart=/root/reload/reload
+ExecStop=/bin/kill -TERM $MAINPID
+ExecReload=/root/reload/reload.sh /root/reload/reload.pid
+PIDFile=/root/reload/reload.pid
+Type=simple
